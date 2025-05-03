@@ -18,85 +18,108 @@
     background-color: var(--bg-gray);
     color: var(--text-dark);
     line-height: 1.7;
+    padding-top: 100px; /* 헤더만큼 띄우기 */
   }
   
-  /* 헤더 */
-  header {
+/* 헤더 */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 90px;
-    background-color: #fff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
-    header {
-        position: relative;
-      }
-    top: 0;
-    width: 100%;
-    z-index: 1000;
+    padding: 20px 30px;
   }
   
   .logo img {
-    height: 80px;
-  }
-  @media (max-width: 768px) {
-    .hamburger {
-      display: block;
-    }
-  }
-  @media (max-width: 768px) {
-    .nav-links {
-      position: absolute;
-      top: 80px;
-      left: 0;
-      right: 0;
-      background: #fff;
-      display: none;
-      flex-direction: column;
-      gap: 20px;
-      padding: 20px 40px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      z-index: 999;
-    }
-  
-    .nav-links.active {
-      display: flex;
-      position: fixed; /* ✅ 고정 위치로 변경 */
-      height: 100vh;   /* ✅ 전체 높이 */
-      overflow-y: auto; /* ✅ 내부 스크롤 */
-    }
-  }
-  
-  .nav-links a {
-    text-decoration: none;
-    color: var(--text-dark);
-    font-size: 20px;
-    font-weight: 500;
-    transition: color 0.2s ease;
-  }
-  
-  .nav-links a:hover {
-    color: var(--main-yellow);
-  }
-  
-  header {
-    position: relative; /* 꼭 있어야 해 */
+    height: 60px;
   }
   
   .hamburger {
     display: none;
     position: absolute;
-    top: 40px;
-    right: 35px;
+    top: 28px;
+    right: 50px;
     cursor: pointer;
-    z-index: 1001;
+    z-index: 1100;
+  }
+  .hamburger svg {
+    width: 30px;
+    height: 30px;
+    fill: var(--main-yellow);
   }
   
-  .hamburger svg {
-    width: 35px;
-    height: 35px;
-    fill: #F2B035;
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    align-items: center;
   }
+  
+/* 모바일 터치시 노란 하이라이트 제거 완전판 */
+.nav-links a,
+.hamburger {
+  -webkit-tap-highlight-color: transparent;
+  outline: none !important;
+  background-color: transparent !important;
+}
+
+.nav-links a:focus,
+.nav-links a:active,
+.nav-links a:focus-visible,
+.hamburger:focus,
+.hamburger:active,
+.hamburger:focus-visible {
+  outline: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+  @media (max-width: 768px) {
+    .nav-links {
+      position: fixed;
+      top: 100px;
+      left: 0;
+      right: 0;
+      background: white;
+      display: none;
+      flex-direction: column;
+      padding: 30px 0;
+      gap: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      z-index: 999;
+      border-radius: 0;
+      width: 100%;
+      align-items: center; /* ✅ 가운데 정렬 */
+    }
+  
+    .nav-links.active {
+      display: flex;
+      height: auto; /* ✅ 필요한 만큼만 높이 */
+    }
+  
+    .nav-links a {
+      font-size: 18px;
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+      width: 100%;
+      text-align: center;
+    }
+  
+    .nav-links a:last-child {
+      border-bottom: none;
+    }
+  
+    .hamburger {
+      display: block;
+    }
+  }
+  
+  
   
   /* 배너 */
  /* ✅ 배너 */
@@ -121,6 +144,7 @@
     left: 0;
     height: 180px;
     width: 100%;
+
     z-index: 1;
   }
   
@@ -155,15 +179,6 @@
     margin-bottom: 10px;
   }
   
-  /* ✅ 교회 이름 */
-  .banner .church-name {
-    margin-top: 0px; /* 위로 올림 */
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--main-yellow);
-    text-shadow: 1px 1px 2px #F2B035(0, 0, 0, 0.2);
-  }
-  
   /* ✅ 성경구절 레퍼런스 */
   .reference {
     font-size: 16px;
@@ -185,6 +200,21 @@
     transition: color 0.2s ease;
   }
   /* 섹션 */
+  /* 공통 박스 너비 정리용 클래스 */
+/* ✅ 공통 섹션 너비 통일 */
+.section-box {
+    max-width: 1100px;  /* Visit Us와 맞춤 */
+    margin: 0 auto;
+    padding: 0 30px;
+  }
+  
+  /* ✅ 모바일에서는 여백 살짝 줄이기 */
+  @media screen and (max-width: 768px) {
+    .section-box {
+      padding: 0 20px;
+    }
+  }
+
   section {
     scroll-margin-top: 100px;
     padding: var(--section-padding);
@@ -195,7 +225,7 @@
   .section-title {
     position: relative;
     display: inline-block;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 700;
     color: #F2B035;
     margin-bottom: 40px;
@@ -413,23 +443,26 @@
       pointer-events: auto;
     }
   }
-  .pastor-greeting {
+/* 담임목사님 소개 영역 */
+.pastor-greeting {
     display: flex;
-    gap: 60px;
+    gap: 40px;
     align-items: center;
     background-color: #fff;
-    padding: 50px;
-    border-radius: 24px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    padding: 60px 40px;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
     margin-top: 40px;
+    max-width: 1100px;   /* 적절한 최대 너비 */
+    margin-left: auto;
+    margin-right: auto;
   }
   
   .pastor-photo img {
-    width: 280px;
-    height: auto;
+    width: 320px;
     border-radius: 12px;
     object-fit: cover;
-    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.08));
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
   }
   
   .greeting-text {
@@ -494,13 +527,29 @@
   } 
 
   /* 푸터 스타일 */
+  .footer-logo-wrapper {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 0;
+  }
+  
+  .footer-logo-top {
+    height: 40px;
+    margin-top: 20px;
+  }
+  
+  .footer-logo-gradient {
+    padding: 40px 0 0px; /* 아래쪽 패딩 줄이기 */
+  }
+  
+
   .site-footer {
     display: flex;
     justify-content: center;   /* 중앙 정렬 */
     align-items: center;       /* 세로 중앙 정렬 */
     padding: 60px 20px 40px;
     gap: 60px;
-    background-color: #f7f7fa;
+    background-color: #f4f4f7;
   }
   
   .footer-inner {
@@ -524,7 +573,7 @@
     color: #333;
   } 
   .footer-logo {
-    width: 160px;              /* 로고 크기 */
+    width: 120px;              /* 로고 크기 */
     height: auto;
   }
   
@@ -544,4 +593,75 @@
   .footer-copy {
     color: #aaa;
     font-size: 13px;
+  }
+
+  /* ✅ 헤더 고정 */
+header {
+    position: fixed; /* 고정 위치 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 90px;
+  }
+  
+  /* ✅ 본문이 헤더에 안 가리도록 여백 확보 */
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: var(--bg-gray);
+    color: var(--text-dark);
+    line-height: 1.7;
+    padding-top: 120px; /* 헤더 높이만큼 띄움 */
+  }
+  
+  /* ✅ 햄버거 메뉴 (모바일용) */
+  .hamburger {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 35px;
+    cursor: pointer;
+    z-index: 1001;
+  }
+  
+  .hamburger svg {
+    width: 35px;
+    height: 35px;
+    fill: #F2B035;
+  }
+  
+  /* ✅ 모바일 내비게이션 */
+  @media (max-width: 768px) {
+    .nav-links {
+      position: fixed;
+      top: 100px; /* 헤더 밑으로 정확히 시작 */
+      left: 0;
+      right: 0;
+      background: white;
+      display: none;
+      flex-direction: column;
+      padding: 20px 40px;
+      gap: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      z-index: 999;
+    }
+  
+    .nav-links.active {
+      display: flex;
+      height: calc(100vh - 100px); /* 남은 높이 채우기 */
+      overflow-y: auto;
+    }
+  
+    .hamburger {
+      display: block;
+    }
+  
+    .logo img {
+      height: 60px;
+    }
   }

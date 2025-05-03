@@ -41,15 +41,16 @@
 
   <!-- 교회 소개 -->
   <section id="intro" class="fade-up">
-    <h2 class="section-title highlight-animate">
-      <span class="emoji">✨</span>
-      <span class="highlight-text">Rising Star Church 소개</span>
-    </h2>
-    <div class="pastor-greeting">
-      <div class="pastor-photo">
-        <img src="images/pastor.jpg" alt="담임목사님 사진" />
-      </div>
-      <div class="greeting-text">
+    <div class="section-box">
+      <h2 class="section-title highlight-animate">
+        <span class="emoji">✨</span>
+        <span class="highlight-text">Who We Are</span>
+      </h2>
+      <div class="pastor-greeting">
+        <div class="pastor-photo">
+          <img src="images/pastor.jpg" alt="담임목사님 사진" />
+        </div>
+        <div class="greeting-text">
         <p><strong class="highlight-yellow">밴쿠버의 믿음의 가족 여러분, 주님의 이름으로 환영합니다.</strong></p>
         <p>가정과 교회는 주님께서 이 땅에 허락하신 가장 귀한 선물입니다.<br />
           하나님은 이 두 공동체를 통해 세상을 구원하시고, 그 사랑이 이어지길 원하십니다.<br />
@@ -67,16 +68,19 @@
           </li>
         </ul>
         <p class="pastor-signature">김종현 목사</p>
+    </div>
       </div>
     </div>
   </section>
 
   <!-- 비전 -->
   <section id="departments">
+    <div class="section-box">
     <h2 class="section-title highlight-animate">
       <span class="emoji">🌟</span>
-      <span class="highlight-text">우리가 꿈꾸는 비전</span>
+      <span class="highlight-text">Our Vision</span>
     </h2>
+    <div class="vision-chat section-box">
     <div class="vision-chat">
         <div class="imessage left fade-up">
         <h4>📖 말씀과 기도로 깨어있는 교회</h4>
@@ -99,11 +103,13 @@
 
   <!-- 예배 안내 -->
   <section id="worship">
+    <div class="section-box">
     <h2 class="section-title highlight-animate">
       <span class="emoji">🙏</span>
-      <span class="highlight-text">예배와 말씀</span>
+      <span class="highlight-text">Service Times</span>
     </h2>
-    <p class="worship-intro">예배는 단순한 모임이 아닌 하나님과의 깊은 만남의 자리입니다.</p>
+    <div class="worship-cards section-box">
+    <p class="worship-intro">예배는 하나님과의 만남입니다.</p>
     <div class="worship-cards">
       <div class="worship-card">
         <h3>주일 세대통합예배</h3>
@@ -127,11 +133,11 @@
   <section id="location">
     <h2 class="section-title highlight-animate">
       <span class="emoji">📍</span>
-      <span class="highlight-text">교회 오시는 길</span>
+      <span class="highlight-text">Visit Us</span>
     </h2>
     <div class="location-wrapper">
       <div class="location-card">
-        <p><strong>코퀴틀람 로히드역 근처, 차로 5분 거리에 자리잡고 있어요 😊</strong> <br>
+        <p><strong>코퀴틀람 로히드역 근처,<br>차로 5분 거리에 자리잡고 있어요😊</strong> <br>
                       220 Allard St, Coquitlam, BC V3K 4K8</p>
       </div>
       <div class="map-frame">
@@ -154,21 +160,30 @@
       const hamburger = document.getElementById('hamburger');
       const navLinks = document.getElementById('navLinks');
   
-      // 햄버거 버튼 클릭 시 메뉴 열기/닫기
-      hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
-      });
-  
-      // 메뉴 항목 클릭 시 메뉴 닫기
       document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
+  link.addEventListener('click', (e) => {
+    navLinks.classList.remove('active');
+    document.body.style.overflow = '';
+    e.target.blur(); // ✅ 여기에 포커스 제거 정확히
+  });
+});
+
+hamburger.addEventListener('click', (e) => {
+  navLinks.classList.toggle('active');
+  document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+  e.target.blur(); // ✅ 햄버거 버튼도 포커스 제거
+});
+  
+      // 메뉴 항목 클릭
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', (e) => {
           navLinks.classList.remove('active');
           document.body.style.overflow = '';
+          e.currentTarget.blur(); // ✅ 포커스 제거
         });
       });
   
-      // 말풍선 애니메이션 (페이드 업)
+      // 페이드업 애니메이션
       const fadeUps = document.querySelectorAll('.fade-up');
   
       const observer = new IntersectionObserver((entries) => {
@@ -187,19 +202,21 @@
       fadeUps.forEach((el) => observer.observe(el));
     });
   </script>
+  
  
-  <!-- 푸터 -->
+<!-- 푸터 위 로고 + 그라데이션 배경 -->
+<div class="footer-logo-gradient">
+    <div class="footer-logo-wrapper">
+      <img src="images/smalllogo.png" alt="Rising Star Church 로고" class="footer-logo-top" />
+    </div>
+  </div>
+  
+  <!-- 푸터 시작 -->
   <footer class="site-footer">
     <div class="footer-inner">
-      <div class="footer-left">
-        <img src="images/smalllogo.png" alt="로고" class="footer-logo" />
-      </div>
       <div class="footer-center">
         <p class="footer-contact">220 Allard St, Coquitlam, BC V3K 4K8</p>
-        <p class="footer-contact">
-          📧 <a href="mailto:risingstar4304@gmail.com">risingstar4304@gmail.com</a>
-          &nbsp;&nbsp;📞 775-895-0203
-        </p>
+        <p class="footer-contact">📧risingstar4304@gmail.com  📞775-895-0203</p>
         <p class="footer-copy">© 2025 Vancouver Rising Star Church. All rights reserved.</p>
       </div>
     </div>
