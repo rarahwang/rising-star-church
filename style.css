@@ -55,10 +55,21 @@ header {
 }
 
 .nav-links {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
   display: flex;
-  gap: 32px;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  background: white;
+  position: fixed;
+  top: 100px;
+  left: 0;
+  right: 0;
+  padding: 0 20px;
+  z-index: 999;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 /* 모바일 터치시 노란 하이라이트 제거 완전판 */
@@ -178,7 +189,7 @@ box-shadow: none !important;
 /* ✅ 말씀 텍스트 */
 .banner h1 {
   font-family: 'Pretendard Variable', sans-serif;
-  font-size: 35px;
+  font-size: 30px;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
   margin-bottom: 10px;
   color: #ffffffcc;
