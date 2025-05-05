@@ -70,6 +70,14 @@ header {
   padding: 0 20px;
   z-index: 999;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  pointer-events: none;
+}
+
+.nav-links.active {
+  max-height: 500px;
+  opacity: 1;
+  pointer-events: auto;
+  display: flex;
 }
 
 /* 모바일 터치시 노란 하이라이트 제거 완전판 */
@@ -92,17 +100,16 @@ box-shadow: none !important;
 }
 @media (max-width: 768px) {
   .nav-links {
-    position: fixed;
+    position: static;
     top: 100px;
     left: 0;
     right: 0;
     background: white;
-    display: none;
     flex-direction: column;
     padding: 30px 0;
     gap: 20px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    z-index: 999;
+    z-index: auto;
     border-radius: 0;
     width: 100%;
     align-items: center; /* ✅ 가운데 정렬 */
@@ -664,6 +671,20 @@ body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     z-index: 999;
   }
+  /* PC용 nav-links는 항상 보이게 */
+@media (min-width: 769px) {
+  .nav-links {
+    display: flex !important;
+    flex-direction: row;
+    gap: 32px;
+    opacity: 1 !important;
+    max-height: none !important;
+    overflow: visible !important;
+    position: static;
+    padding: 0;
+    box-shadow: none;
+  }
+}
 
   .nav-links.active {
     display: flex;
@@ -705,4 +726,37 @@ body {
     max-width: 95%;     /* ✅ 목사님 사진도 자연스럽게 축소 */
     height: auto;
   }
+}
+
+section {
+  scroll-margin-top: 120px;
+}
+
+@media screen and (min-width: 769px) {
+  .nav-links {
+    display: flex !important;
+    flex-direction: row;
+    gap: 32px;
+    position: static;
+    max-height: none;
+    opacity: 1;
+    overflow: visible;
+    padding: 0;
+    box-shadow: none;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .hamburger {
+    display: none !important;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px; /* header 높이만큼 */
+}
+
+section {
+  scroll-margin-top: 120px; /* header 높이만큼 */
 }

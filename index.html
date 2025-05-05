@@ -200,6 +200,11 @@ hamburger.addEventListener('click', (e) => {
   
       fadeUps.forEach((el) => observer.observe(el));
     });
+    // 로고 클릭 시 강제로 페이지 맨 위로 스크롤
+document.querySelector('.logo a').addEventListener('click', (e) => {
+  e.preventDefault(); // 기본 앵커 이동 막기
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
   </script>
   
  
