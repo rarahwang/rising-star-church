@@ -1,72 +1,72 @@
 :root {
-    --main-yellow: #F2B035;
-    --text-dark: #222;
-    --text-light: #555;
-    --bg-gray: #f4f4f7;
-    --section-padding: 100px 80px;
-  }
-  
-  /* 기본 설정 */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Noto Sans KR', sans-serif;
-    background-color: var(--bg-gray);
-    color: var(--text-dark);
-    line-height: 1.7;
-    padding-top: 100px; /* 헤더만큼 띄우기 */
-  }
-  
+  --main-yellow: #F2B035;
+  --text-dark: #222;
+  --text-light: #555;
+  --bg-gray: #f4f4f7;
+  --section-padding: 100px 80px;
+}
+
+/* 기본 설정 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background-color: var(--bg-gray);
+  color: var(--text-dark);
+  line-height: 1.7;
+  padding-top: 0px; /* 헤더만큼 띄우기 */
+}
+
 /* 헤더 */
 header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    background-color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 30px;
-  }
-  
-  .logo img {
-    height: 60px;
-  }
-  
-  .hamburger {
-    display: none;
-    position: absolute;
-    top: 28px;
-    right: 50px;
-    cursor: pointer;
-    z-index: 1100;
-  }
-  .hamburger svg {
-    width: 30px;
-    height: 30px;
-    fill: var(--main-yellow);
-  }
-  
-  .nav-links {
-    display: flex;
-    gap: 32px;
-    justify-content: center;
-    align-items: center;
-  }
-  
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+}
+
+.logo img {
+  height: 60px;
+}
+
+.hamburger {
+  display: none;
+  position: absolute;
+  top: 30px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 1100;
+}
+.hamburger svg {
+  width: 30px;
+  height: 30px;
+  fill: var(--main-yellow);
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  align-items: center;
+}
+
 /* 모바일 터치시 노란 하이라이트 제거 완전판 */
 .nav-links a,
 .hamburger {
-  -webkit-tap-highlight-color: transparent;
-  outline: none !important;
-  background-color: transparent !important;
+-webkit-tap-highlight-color: transparent;
+outline: none !important;
+background-color: transparent !important;
 }
 
 .nav-links a:focus,
@@ -75,593 +75,623 @@ header {
 .hamburger:focus,
 .hamburger:active,
 .hamburger:focus-visible {
-  outline: none !important;
-  background-color: transparent !important;
-  box-shadow: none !important;
+outline: none !important;
+background-color: transparent !important;
+box-shadow: none !important;
 }
-  @media (max-width: 768px) {
-    .nav-links {
-      position: fixed;
-      top: 100px;
-      left: 0;
-      right: 0;
-      background: white;
-      display: none;
-      flex-direction: column;
-      padding: 30px 0;
-      gap: 20px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      z-index: 999;
-      border-radius: 0;
-      width: 100%;
-      align-items: center; /* ✅ 가운데 정렬 */
-    }
-  
-    .nav-links.active {
-      display: flex;
-      height: auto; /* ✅ 필요한 만큼만 높이 */
-    }
-  
-    .nav-links a {
-      font-size: 18px;
-      padding: 10px 0;
-      border-bottom: 1px solid #eee;
-      width: 100%;
-      text-align: center;
-    }
-  
-    .nav-links a:last-child {
-      border-bottom: none;
-    }
-  
-    .hamburger {
-      display: block;
-    }
-  }
-  
-  
-  
-  /* 배너 */
- /* ✅ 배너 */
-.banner {
-    height: 100vh;
-    background: url("images/banner-bg.jpg") no-repeat center center/cover;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; /* 상단 정렬로 변경 */
-    text-align: center;
-    position: relative;
-    padding: 60px 20px 0; /* 상단 여백 넉넉하게 */
-    color: white;
-    overflow: hidden;
-  }
-  
-  /* ✅ 상단 그라데이션 (흰색 → 투명) */
-  .banner::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 180px;
-    width: 100%;
-
-    z-index: 1;
-  }
-  
-  /* ✅ 하단 그라데이션 (투명 → 회색 배경색) */
-  .banner::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 120px;
-    width: 100%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #f4f4f7 100%);
-    z-index: 1;
-  }
-  
-  /* ✅ 배너 텍스트 컨테이너 */
-  .banner-content {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    padding-top: 20px; /* 더 위로 올리기 위해 줄임 */
-  }
-  
-  /* ✅ 말씀 텍스트 */
-  .banner h1 {
-    font-family: 'Gamja Flower', cursive;
-    font-size: 42px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-    margin-bottom: 10px;
-  }
-  
-  /* ✅ 성경구절 레퍼런스 */
-  .reference {
-    font-size: 16px;
-    color: #ffffffcc;
-  }
-  
-  
+@media (max-width: 768px) {
   .nav-links {
+    position: fixed;
+    top: 100px;
+    left: 0;
+    right: 0;
+    background: white;
+    display: none;
+    flex-direction: column;
+    padding: 30px 0;
+    gap: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    border-radius: 0;
+    width: 100%;
+    align-items: center; /* ✅ 가운데 정렬 */
+  }
+
+  .nav-links.active {
     display: flex;
-    justify-content: center;  /* 가운데 정렬 */
-    gap: 32px;                /* 메뉴 간 간격 조정 */
+    height: auto; /* ✅ 필요한 만큼만 높이 */
   }
-  
+
   .nav-links a {
-    font-size: 25px;
-    font-weight: 500;
-    text-decoration: none;
-    color: #222;
-    transition: color 0.2s ease;
+    font-size: 18px;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    width: 100%;
+    text-align: center;
   }
-  /* 섹션 */
-  /* 공통 박스 너비 정리용 클래스 */
+
+  .nav-links a:last-child {
+    border-bottom: none;
+  }
+
+  .hamburger {
+    display: block;
+    right: 20px;
+  }
+}
+
+
+
+/* 배너 */
+/* ✅ 배너 */
+.banner {
+  height: 70vh;
+  min-height: 400px;
+  background: url("images/banner-bg.jpg") no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* 상단 정렬로 변경 */
+  text-align: center;
+  position: relative;
+  padding: 0; /* 상단 여백 넉넉하게 */
+  padding-top: 0px;
+  color: #ffffffcc(0, 0, 0);
+  overflow: hidden;
+  margin-top: -20px;
+}
+
+/* ✅ 상단 그라데이션 (흰색 → 투명) */
+.banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 180px;
+  width: 100%;
+
+  z-index: 1;
+}
+
+/* ✅ 하단 그라데이션 (투명 → 회색 배경색) */
+.banner::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 120px;
+  width: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #f4f4f7 100%);
+  z-index: 1;
+}
+
+/* ✅ 배너 텍스트 컨테이너 */
+.banner-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding-top: 150px; /* 더 위로 올리기 위해 줄임 */
+}
+
+/* ✅ 말씀 텍스트 */
+.banner h1 {
+  font-family: 'Pretendard Variable', sans-serif;
+  font-size: 35px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  margin-bottom: 10px;
+  color: #ffffffcc;
+  font-weight: 600;
+}
+
+/* ✅ 성경구절 레퍼런스 */
+.reference {
+  font-size: 16px;
+  color: #665f5f5b;
+}
+
+
+.nav-links {
+  display: flex;
+  justify-content: center;  /* 가운데 정렬 */
+  gap: 32px;                /* 메뉴 간 간격 조정 */
+}
+
+.nav-links a {
+  font-size: 25px;
+  font-weight: 500;
+  text-decoration: none;
+  color: #222;
+  transition: color 0.2s ease;
+}
+/* 섹션 */
+/* 공통 박스 너비 정리용 클래스 */
 /* ✅ 공통 섹션 너비 통일 */
 .section-box {
-    max-width: 1100px;  /* Visit Us와 맞춤 */
-    margin: 0 auto;
-    padding: 0 30px;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+/* ✅ 모바일에서는 여백 살짝 줄이기 */
+@media screen and (max-width: 768px) {
+  .section-box {
+    padding: 0;
   }
-  
-  /* ✅ 모바일에서는 여백 살짝 줄이기 */
-  @media screen and (max-width: 768px) {
-    .section-box {
-      padding: 0 20px;
-    }
+}
+@media screen and (max-width: 480px) {
+  .section-title {
+    font-size: 22px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  section {
+    padding: 40px 16px; /* 모바일에서는 좌우 여백만 살짝 줄이고 위아래는 유지 */
+  }
+}
+
+.section-title {
+  position: relative;
+  display: inline-block;
+  font-size: 28px;
+  font-weight: 700;
+  color: #F2B035;
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15); /* 부드러운 그림자 */
+  white-space: nowrap;
+}
+
+.highlight-text::before {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 0%;
+  height: 6px;
+  background-color: var(--main-yellow);
+  z-index: -1;
+  transition: width 0.6s ease-in-out;
+  border-radius: 4px;
+}
+
+.highlight-animate.visible .highlight-text::before {
+  width: 100%;
+}
+
+/* 말풍선 */
+.vision-chat {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.imessage {
+  max-width: 85%;
+  padding: 16px 20px;
+  font-size: 16px;
+  border-radius: 22px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  line-height: 1.6;
+  position: relative;
+}
+
+.imessage.left {
+  align-self: flex-start;
+  background: #f0f0f0;
+  color: #000;
+  border-radius: 22px 22px 22px 6px;
+}
+
+.imessage.right {
+  align-self: flex-end;
+  background: #007aff;
+  color: #fff;
+  border-radius: 22px 22px 6px 22px;
+}
+
+.imessage h4 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 예배 카드 */
+.worship-intro {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 40px;
+  margin-top: 10px;
+}
+
+.worship-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.worship-card {
+  background: #fff;
+  padding: 30px 25px;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 320px;
+}
+
+.worship-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(242, 176, 53, 0.4);
+}
+
+/* 오시는 길 */
+#location {
+  padding: 100px 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.location-wrapper {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+}
+
+.map-frame {
+  position: relative;
+  height: 260px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+.map-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  text-decoration: none;
+}
+
+.emoji-pin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  font-size: 32px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.location-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 30px 40px;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+}
+@media screen and (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 20px;
   }
 
-  section {
-    scroll-margin-top: 100px;
-    padding: var(--section-padding);
-    max-width: 1280px;
-    margin: 0 auto;
-  }
-  
-  .section-title {
-    position: relative;
-    display: inline-block;
-    font-size: 30px;
-    font-weight: 700;
-    color: #F2B035;
-    margin-bottom: 40px;
-    padding-bottom: 8px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15); /* 부드러운 그림자 */
-  }
-  
-  .highlight-text::before {
-    content: "";
+  .nav-links {
     position: absolute;
-    bottom: -8px;
+    top: 80px;
     left: 0;
-    width: 0%;
-    height: 6px;
-    background-color: var(--main-yellow);
-    z-index: -1;
-    transition: width 0.6s ease-in-out;
-    border-radius: 4px;
-  }
-  
-  .highlight-animate.visible .highlight-text::before {
-    width: 100%;
-  }
-  
-  /* 말풍선 */
-  .vision-chat {
-    display: flex;
-    flex-direction: column;
-    gap: 48px;
-  }
-  
-  .imessage {
-    max-width: 85%;
-    padding: 16px 20px;
-    font-size: 16px;
-    border-radius: 22px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-    line-height: 1.6;
-    position: relative;
-  }
-  
-  .imessage.left {
-    align-self: flex-start;
-    background: #f0f0f0;
-    color: #000;
-    border-radius: 22px 22px 22px 6px;
-  }
-  
-  .imessage.right {
-    align-self: flex-end;
-    background: #007aff;
-    color: #fff;
-    border-radius: 22px 22px 6px 22px;
-  }
-  
-  .imessage h4 {
-    font-size: 15px;
-    font-weight: 600;
-    margin-bottom: 6px;
-  }
-  .fade-up {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease-out;
-  }
-  
-  .fade-up.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  /* 예배 카드 */
-  .worship-intro {
-    font-size: 18px;
-    color: #666;
-    margin-bottom: 40px;
-  }
-  
-  .worship-cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: center;
-  }
-  
-  .worship-card {
-    background: #fff;
-    padding: 30px 25px;
-    border-radius: 20px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
-    width: 300px;
-    transition: all 0.3s ease;
-  }
-  
-  .worship-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 30px rgba(242, 176, 53, 0.4);
-  }
-  
-  /* 오시는 길 */
-  #location {
-    padding: 100px 30px;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-  
-  .location-wrapper {
-    position: relative;
-    border-radius: 24px;
-    overflow: hidden;
-    background-color: #fff;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
-  }
-  
-  .map-frame {
-    position: relative;
-    height: 260px;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-  }
-  
-  .map-link {
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: relative;
-    text-decoration: none;
-  }
-  
-  .emoji-pin {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -100%);
-    font-size: 32px;
-    z-index: 10;
-    pointer-events: none;
-  }
-  
-  .location-card {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    right: 0;
     background: white;
-    padding: 30px 40px;
-    border-radius: 20px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
+    display: none;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   }
-  
-  /* 반응형 */
-  @media (max-width: 768px) {
-    .hamburger {
-      display: block;
-    }
+
+  .nav-links.active {
+    display: flex;
   }
-  @media screen and (max-width: 768px) {
-    header {
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 16px 20px;
-    }
-  
-    .nav-links {
-      position: absolute;
-      top: 80px;
-      left: 0;
-      right: 0;
-      background: white;
-      display: none;
-      flex-direction: column;
-      padding: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-  
-    .nav-links.active {
-      display: flex;
-    }
-  
-    .hamburger {
-      display: block;
-    }
-  
-    .logo img {
-      height: 60px;
-    }
-  
-    .pastor-greeting {
-      flex-direction: column;
-      gap: 30px;
-    }
-  
-    .worship-cards {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .location-card {
-      position: relative;
-      transform: none;
-      top: auto;
-      left: auto;
-      padding: 20px;
-      width: 100%;
-      max-width: none;
-      box-shadow: none;
-    }
-  
-    .map-frame {
-      height: 200px;
-      opacity: 1;
-      filter: none;
-      pointer-events: auto;
-    }
+
+  .hamburger {
+    display: block;
   }
+
+  .logo img {
+    height: 60px;
+  }
+
+  .pastor-greeting {
+    flex-direction: column;
+    padding: 30px 20px;
+    gap: 30px;
+  }
+
+  .worship-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .location-card {
+    position: relative;
+    transform: none;
+    top: auto;
+    left: auto;
+    padding: 20px;
+    width: 100%;
+    max-width: none;
+    box-shadow: none;
+  }
+
+  .map-frame {
+    height: 200px;
+    opacity: 1;
+    filter: none;
+    pointer-events: auto;
+  }
+}
 /* 담임목사님 소개 영역 */
 .pastor-greeting {
-    display: flex;
-    gap: 40px;
-    align-items: center;
-    background-color: #fff;
-    padding: 60px 40px;
-    border-radius: 20px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
-    margin-top: 40px;
-    max-width: 1100px;   /* 적절한 최대 너비 */
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .pastor-photo img {
-    width: 320px;
-    border-radius: 12px;
-    object-fit: cover;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-  }
-  
-  .greeting-text {
-    font-size: 17px;
-    color: #444;
-    flex: 1;
-  }
-  
-  .greeting-text p {
-    margin-bottom: 14px;
-  }
-  
-  .pastor-signature {
-    text-align: right;
-    font-weight: 500;
-    margin-top: 30px;
-    color: #444;
-  }
-  
-  .soft-list {
-    list-style: none;
-    padding-left: 0;
-    margin-top: 20px;
-  }
-  
-  .soft-list li {
-    margin-bottom: 20px;
-    line-height: 1.6;
-  }
-  
-  .highlight-yellow {
-    color: var(--main-yellow);
-    font-weight: bold;
-  }
-  
-  /* 반응형 */
-  @media screen and (max-width: 768px) {
-    .pastor-greeting {
-      flex-direction: column;
-      padding: 30px 20px;
-      gap: 30px;
-    }
-  
-    .pastor-photo img {
-      width: 100%;
-      max-width: 220px;
-    }
-  
-    .greeting-text {
-      font-size: 16px;
-    }
-  }
-  .fade-up {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease-out;
-  }
-  
-  .fade-up.visible {
-    opacity: 1;
-    transform: translateY(0);
-  } 
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  background-color: #fff;
+  padding: 40px 24px;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  margin-top: 40px;
+  max-width: 1080px;   /* 적절한 최대 너비 */
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
 
-  /* 푸터 스타일 */
-  .footer-logo-wrapper {
-    text-align: center;
-    margin-top: 30px;
-    margin-bottom: 0;
-  }
-  
-  .footer-logo-top {
-    height: 40px;
-    margin-top: 20px;
-  }
-  
-  .footer-logo-gradient {
-    padding: 40px 0 0px; /* 아래쪽 패딩 줄이기 */
-  }
-  
+.pastor-photo img {
+  width: 320px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+}
 
-  .site-footer {
-    display: flex;
-    justify-content: center;   /* 중앙 정렬 */
-    align-items: center;       /* 세로 중앙 정렬 */
-    padding: 60px 20px 40px;
-    gap: 60px;
-    background-color: #f4f4f7;
-  }
-  
-  .footer-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    width: 100%;
-  }
-  
-  .footer-left {
-    display: flex;
-    align-items: center;       /* 텍스트 세로 중앙과 맞춤 */
-    justify-content: center;
-  }
-  .footer-right {
-    text-align: left;
-    line-height: 1.8;
-    font-size: 16px;
-    color: #333;
-  } 
-  .footer-logo {
-    width: 120px;              /* 로고 크기 */
-    height: auto;
-  }
-  
-  .footer-center {
-    flex: 2;
-    text-align: center;
-    margin-top: -30px; /* 위로 올리기 */
-  }
-  
-  .footer-contact,
-  .footer-copy {
-    font-size: 15px;
-    color: #333;
-    margin: 6px 0;
-  }
-  
-  .footer-copy {
-    color: #aaa;
-    font-size: 13px;
-  }
+.greeting-text {
+  font-size: 17px;
+  color: #444;
+  flex: 1;
+}
 
-  /* ✅ 헤더 고정 */
+.greeting-text p {
+  margin-bottom: 14px;
+}
+
+.pastor-signature {
+  text-align: right;
+  font-weight: 500;
+  margin-top: 30px;
+  color: #444;
+}
+
+.soft-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 20px;
+}
+
+.soft-list li {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.highlight-yellow {
+  color: var(--main-yellow);
+  font-weight: bold;
+}
+
+/* 반응형 */
+@media screen and (max-width: 768px) {
+
+}
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+} 
+
+/* 푸터 스타일 */
+.footer-logo-wrapper {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 0;
+}
+
+.footer-logo-top {
+  height: 40px;
+  margin-top: 20px;
+}
+
+.footer-logo-gradient {
+  padding: 40px 0 0px; /* 아래쪽 패딩 줄이기 */
+}
+
+
+.site-footer {
+  display: flex;
+  justify-content: center;   /* 중앙 정렬 */
+  align-items: center;       /* 세로 중앙 정렬 */
+  padding: 60px 20px 40px;
+  gap: 60px;
+  background-color: #f4f4f7;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;       /* 텍스트 세로 중앙과 맞춤 */
+  justify-content: center;
+}
+.footer-right {
+  text-align: left;
+  line-height: 1.8;
+  font-size: 16px;
+  color: #333;
+} 
+.footer-logo {
+  width: 120px;              /* 로고 크기 */
+  height: auto;
+}
+
+.footer-center {
+  flex: 2;
+  text-align: center;
+  margin-top: -30px; /* 위로 올리기 */
+}
+
+.footer-contact,
+.footer-copy {
+  font-size: 15px;
+  color: #333;
+  margin: 6px 0;
+}
+
+.footer-copy {
+  color: #aaa;
+  font-size: 13px;
+}
+
+/* ✅ 헤더 고정 */
 header {
-    position: fixed; /* 고정 위치 */
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    background-color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 90px;
-  }
-  
-  /* ✅ 본문이 헤더에 안 가리도록 여백 확보 */
-  body {
-    font-family: 'Noto Sans KR', sans-serif;
-    background-color: var(--bg-gray);
-    color: var(--text-dark);
-    line-height: 1.7;
-    padding-top: 120px; /* 헤더 높이만큼 띄움 */
-  }
-  
-  /* ✅ 햄버거 메뉴 (모바일용) */
+  position: fixed; /* 고정 위치 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 90px;
+}
+
+/* ✅ 본문이 헤더에 안 가리도록 여백 확보 */
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background-color: var(--bg-gray);
+  color: var(--text-dark);
+  line-height: 1.7;
+  padding-top: 120px; /* 헤더 높이만큼 띄움 */
+}
+
+/* ✅ 햄버거 메뉴 (모바일용) */
+@media (max-width: 768px) {
   .hamburger {
-    display: none;
+    display: block;
     position: absolute;
     top: 30px;
     right: 35px;
     cursor: pointer;
     z-index: 1001;
   }
-  
-  .hamburger svg {
-    width: 35px;
-    height: 35px;
-    fill: #F2B035;
+}
+
+.hamburger svg {
+  width: 35px;
+  height: 35px;
+  fill: #F2B035;
+}
+
+/* ✅ 모바일 내비게이션 */
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    top: 100px; /* 헤더 밑으로 정확히 시작 */
+    left: 0;
+    right: 0;
+    background: white;
+    display: none;
+    flex-direction: column;
+    padding: 20px 40px;
+    gap: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 999;
   }
-  
-  /* ✅ 모바일 내비게이션 */
-  @media (max-width: 768px) {
-    .nav-links {
-      position: fixed;
-      top: 100px; /* 헤더 밑으로 정확히 시작 */
-      left: 0;
-      right: 0;
-      background: white;
-      display: none;
-      flex-direction: column;
-      padding: 20px 40px;
-      gap: 20px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      z-index: 999;
-    }
-  
-    .nav-links.active {
-      display: flex;
-      height: calc(100vh - 100px); /* 남은 높이 채우기 */
-      overflow-y: auto;
-    }
-  
-    .hamburger {
-      display: block;
-    }
-  
-    .logo img {
-      height: 60px;
-    }
+
+  .nav-links.active {
+    display: flex;
+    height: calc(100vh - 100px); /* 남은 높이 채우기 */
+    overflow-y: auto;
   }
+
+  .hamburger {
+    display: block;
+  }
+
+  .logo img {
+    height: 60px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .section-box {
+    padding: 0 16px; /* ✅ 좌우 여백 제거 */
+  }
+
+  .pastor-greeting {
+    width: 100%;        /* ✅ 화면 전체 너비 */
+    max-width: 100%;
+    margin: 0 auto;
+    border-radius: 12px;    /* ✅ 모서리 둥글기 제거 */
+    padding: 24px 16px;  /* ✅ 내부 여백만 유지 */
+  }
+
+
+  .greeting-text {
+    font-size: 17px;
+    line-height: 1.8;
+    padding: 0 8px;
+    word-break: keep-all;  /* ✅ 한국어 단어 단위로 줄바꿈 */
+  }
+
+  .pastor-photo img {
+    max-width: 95%;     /* ✅ 목사님 사진도 자연스럽게 축소 */
+    height: auto;
+  }
+}
