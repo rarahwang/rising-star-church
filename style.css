@@ -206,14 +206,47 @@ box-shadow: none !important;
   font-weight: 500;
   letter-spacing: 0.5px;
 }
+/* 기본 - PC에서는 줄바꿈 없이 가로 */
+.mobile-break {
+  display: inline;
+}
+
+/* 모바일 - 768px 이하일 때 줄바꿈 */
+@media (max-width: 768px) {
+  .mobile-break {
+    display: block;
+  }
+}
 /* ✅ 성경구절 레퍼런스 */
 .reference {
+  white-space: normal !important;
+  word-break: keep-all;
+  overflow-wrap: break-word;
   font-size: 16px;
   color: #2e2f5a;
   margin-top: 8px;
   font-weight: 500;
+  max-width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 1.6;
+}
+@media (min-width: 768px) {
+  .reference {
+    white-space: nomal !important;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    text-align: center;
+    display: block;
+    max-width: 100%;
+    font-size: 16px;
+    overflow: visible;
+  }
 }
 
+#banner .reference {
+white-space: normal !important
+}
 #intro {
   margin-top: 60px;        /* 배너와의 간격 확보 */
   opacity: 0;
