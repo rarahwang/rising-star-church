@@ -220,6 +220,8 @@ hamburger.addEventListener('click', (e) => {
       }, {
         threshold: 0.1
       });
+      const fadeTargets = document.querySelectorAll('#intro');
+    fadeTargets.forEach(target => observer.observe(target));
   
       fadeUps.forEach((el) => observer.observe(el));
     });
