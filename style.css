@@ -190,20 +190,22 @@ box-shadow: none !important;
 /* ✅ 말씀 텍스트 */
 .banner h1 {
   font-family: 'Pretendard Variable', sans-serif;
-  font-size: 28px;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  font-size: 30px;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.25);
   margin-bottom: 10px;
-  color: #ffffffcc;
-  font-weight: 600;
+  color: #444444dc;
+  font-weight: 700;
   line-height: 1.6;
   padding: 0 20px;
+  text-align: center;
 }
 
 /* ✅ 성경구절 레퍼런스 */
 .reference {
-  font-size: 15px;
-  color: #4a4a4a5a;
+  font-size: 16px;
+  color: #444;
   margin-top: 8px;
+  font-weight: 500;
 }
 
 #intro {
@@ -326,7 +328,7 @@ box-shadow: none !important;
 .fade-up {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transition: all 0.7s ease;
 }
 
 .fade-up.visible {
@@ -762,7 +764,7 @@ section {
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 100px; /* header 높이만큼 */
+  scroll-padding-top: 120px; /* header 높이만큼 */
 }
 
 section {
