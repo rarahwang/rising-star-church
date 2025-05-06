@@ -53,7 +53,7 @@
           <img src="images/pastor.jpg" alt="담임목사님 사진" />
         </div>
         <div class="greeting-text">
-        <p><strong class="highlight-yellow"><strong>밴쿠버의 믿음의 가족 여러분, <br>주님의 이름으로 환영합니다.</strong></p>
+        <p><strong class="highlight-yellow">밴쿠버의 믿음의 가족 여러분, <br>주님의 이름으로 환영합니다.</strong></p>
         <p>가정과 교회는 주님께서 <br>이 땅에 허락하신 가장 귀한 선물입니다.<br />
           하나님은 이 두 공동체를 통해 세상을 구원하시고, 그 사랑이 이어지길 원하십니다.<br />
           우리는 그 부르심에 응답하여, 하나님의 사랑으로 세상이 변화되기를 소망합니다.</p>
@@ -164,6 +164,20 @@
     </div>
   </section>
   <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const fadeUps = document.querySelectorAll('.fade-up');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target); // 한 번만 작동하게
+        }
+      });
+    }, { threshold: 0.1 });
+
+    fadeUps.forEach((el) => observer.observe(el));
+  });
     document.addEventListener('DOMContentLoaded', () => {
       const hamburger = document.getElementById('hamburger');
       const navLinks = document.getElementById('navLinks');
