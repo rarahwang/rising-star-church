@@ -637,17 +637,17 @@ body {
   .hamburger {
     display: block;
     position: absolute;
-    top: 30px;
-    right: 35px;
+    top: 40px;
+    right: 40px;
     cursor: pointer;
     z-index: 1001;
   }
 }
 
 .hamburger svg {
-  width: 35px;
-  height: 35px;
-  fill: #F2B035;
+  width: 33px;
+  height: 33px;
+  fill: #f2b035b1;
 }
 
 /* ✅ 모바일 내비게이션 */
