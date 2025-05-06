@@ -40,19 +40,7 @@ header {
   height: 60px;
 }
 
-.hamburger {
-  display: none;
-  position: absolute;
-  top: 30px;
-  right: 20px;
-  cursor: pointer;
-  z-index: 1100;
-}
-.hamburger svg {
-  width: 30px;
-  height: 30px;
-  fill: var(--main-yellow);
-}
+
 
 .nav-links {
   overflow: hidden;
@@ -81,6 +69,7 @@ header {
 }
 
 /* 모바일 터치시 노란 하이라이트 제거 완전판 */
+/* 이부분은주석입니다
 .nav-links a,
 .hamburger {
 -webkit-tap-highlight-color: transparent;
@@ -113,12 +102,12 @@ box-shadow: none !important;
     border-radius: 0;
     width: 100%;
     align-items: center; /* ✅ 가운데 정렬 */
-  }
-
+  
+/* 이부분은주석입니다
   .nav-links.active {
     display: flex;
-    height: auto; /* ✅ 필요한 만큼만 높이 */
-  }
+    height: auto; /* ✅ 필요한 만큼만 높이
+  
 
   .nav-links a {
     font-size: 18px;
@@ -136,8 +125,7 @@ box-shadow: none !important;
     display: block;
     right: 20px;
   }
-}
-
+*/
 
 
 /* 배너 */
@@ -176,10 +164,16 @@ box-shadow: none !important;
   position: absolute;
   bottom: 0;
   left: 0;
-  height: 120px;
+  height: 250px;
   width: 100%;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #f4f4f7 100%);
   z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .banner::after {
+    height: 280px;
+  }
 }
 
 /* ✅ 배너 텍스트 컨테이너 */
@@ -729,7 +723,7 @@ body {
 }
 
 section {
-  scroll-margin-top: 120px;
+  scroll-margin-top: 80px;
 }
 
 @media screen and (min-width: 769px) {
@@ -759,4 +753,31 @@ html {
 
 section {
   scroll-margin-top: 120px; /* header 높이만큼 */
+}
+
+.external-links {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  font-size: 14px;
+  align-items: center;
+  color: #000;
+}
+
+.external-links a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color:#000;
+  gap: 6px;
+}
+.external-links img {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s ease;
+}
+
+.external-links img:hover {
+  opacity: 0.8;
 }
